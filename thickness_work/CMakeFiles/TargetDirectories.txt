@@ -1,0 +1,8 @@
+/nfs/space1/ktsuri/PPCCSeminar2019/thickness_work/CMakeFiles/install/strip.dir
+/nfs/space1/ktsuri/PPCCSeminar2019/thickness_work/CMakeFiles/install/local.dir
+/nfs/space1/ktsuri/PPCCSeminar2019/thickness_work/CMakeFiles/install.dir
+/nfs/space1/ktsuri/PPCCSeminar2019/thickness_work/CMakeFiles/list_install_components.dir
+/nfs/space1/ktsuri/PPCCSeminar2019/thickness_work/CMakeFiles/rebuild_cache.dir
+/nfs/space1/ktsuri/PPCCSeminar2019/thickness_work/CMakeFiles/edit_cache.dir
+/nfs/space1/ktsuri/PPCCSeminar2019/thickness_work/CMakeFiles/B1.dir
+/nfs/space1/ktsuri/PPCCSeminar2019/thickness_work/CMakeFiles/exampleB1.dir

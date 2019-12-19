@@ -1,0 +1,112 @@
+{
+  gROOT->Reset();
+  gROOT->SetStyle("Plain");
+  gStyle->SetOptStat(kFALSE);
+  gStyle->SetLabelFont(42,"XYZ");
+  gStyle->SetLabelFont(42,"");
+  gStyle->SetTitleFont(42,"");
+  gStyle->SetLegendFont(42);
+
+  TCanvas* c1 = new TCanvas("c1", "", 20, 20, 1400, 400);
+  c1->Divide(3,1);
+
+  c1->cd(1);
+
+  TFile *f_box_si = new TFile("Box_Si.root");
+  TH1F* h_box_si = (TH1F*)f_box_si->Get("Edep");
+  h_box_si->SetTitle("Box histogram");
+  h_box_si->SetLineColor(kRed-4);
+  h_box_si->SetBinContent(100);
+
+  h_box_si->SetXTitle("Energy Deposit / MeV");
+  h_box_si->SetTitleSize(0.04,"x");
+  h_box_si->SetLabelSize(0.028,"x");
+  h_box_si->GetXaxis()->SetLimits(0.0,4.0);
+ 
+  h_box_si->SetYTitle("Counts");
+  h_box_si->SetTitleSize(0.04,"y");
+  h_box_si->SetLabelSize(0.028,"y");
+
+  h_box_si->Draw("hist");
+
+  TFile *f_box_pb = new TFile("Box_Pb.root");
+  TH1F* h_box_pb = (TH1F*)f_box_pb->Get("Edep");
+  h_box_pb->SetLineColor(kAzure-1);
+  h_box_pb->SetLineWidth(1);
+
+  h_box_pb->Draw("hist same");
+
+  TLegend *l_box= new TLegend( 0.75, 0.70, 0.94, 0.78);
+  l_box->AddEntry(h_box_si,"Si","l");
+  l_box->AddEntry(h_box_pb,"Pb","l");
+  l_box->Draw();
+
+  //----------------------------------------------------------------------------
+
+  c1->cd(2);
+
+  TFile *f_board_si = new TFile("Board_Si.root");
+  TH1F* h_board_si = (TH1F*)f_board_si->Get("Edep");
+  h_board_si->SetTitle("Board histogram");
+  h_board_si->SetLineColor(kRed-4);
+
+  h_board_si->SetXTitle("Energy Deposit / MeV");
+  h_board_si->SetTitleSize(0.04,"x");
+  h_board_si->SetLabelSize(0.028,"x");
+  h_board_si->GetXaxis()->SetLimits(0.0,4.0);
+
+  h_board_si->SetYTitle("Counts");
+  h_board_si->SetTitleSize(0.04,"y");
+  h_board_si->SetLabelSize(0.028,"y");
+
+  h_board_si->Draw("hist");
+
+  TFile *f_board_pb = new TFile("Board_Pb.root");
+  TH1F* h_board_pb = (TH1F*)f_board_pb->Get("Edep");
+  h_board_pb->SetLineColor(kAzure-1);
+  h_board_pb->SetLineWidth(1);
+
+  h_board_pb->Draw("hist same");
+
+  TLegend *l_board= new TLegend( 0.75, 0.70, 0.94, 0.78);
+  l_board->AddEntry(h_board_si,"Si","l");
+  l_board->AddEntry(h_board_pb,"Pb","l");
+  l_board->Draw();
+
+  //---------------------------------------------------------------------------- 
+
+  c1->cd(3);
+
+  TFile *f_cone_si = new TFile("Cone_Si.root");
+  TH1F* h_cone_si = (TH1F*)f_cone_si->Get("Edep");
+  h_cone_si->SetTitle("Cone histogram");
+  h_cone_si->SetLineColor(kRed-4);
+
+  h_cone_si->SetXTitle("Energy Deposit / MeV");
+  h_cone_si->SetTitleSize(0.04,"x");
+  h_cone_si->SetLabelSize(0.028,"x");
+  h_cone_si->GetXaxis()->SetLimits(0.0,4.0);
+
+  h_cone_si->SetYTitle("Counts");
+  h_cone_si->SetTitleSize(0.04,"y");
+  h_cone_si->SetLabelSize(0.028,"y");
+
+  h_cone_si->Draw("hist");
+
+  TFile *f_cone_pb = new TFile("Cone_Pb.root");
+  TH1F* h_cone_pb = (TH1F*)f_cone_pb->Get("Edep");
+  h_cone_pb->SetLineColor(kAzure-1);
+  h_cone_pb->SetLineWidth(1);
+
+  h_cone_pb->Draw("hist same");
+
+  TLegend *l_cone= new TLegend( 0.75, 0.70, 0.94, 0.78);
+  l_cone->AddEntry(h_cone_si,"Si","l");
+  l_cone->AddEntry(h_cone_pb,"Pb","l");
+  l_cone->Draw();
+
+  //---------------------------------------------------------------------------- 
+
+  c1->SaveAs("Rslt.png");
+
+}
